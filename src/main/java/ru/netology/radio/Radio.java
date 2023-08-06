@@ -53,13 +53,13 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
     public void louderVolume () {
-        if (currentVolume != 100) {
+        if (currentVolume < 100) {
             currentVolume++;
         } else return;
     }
 
     public void quietVolume () {
-        if (currentVolume != 0) {
+        if (currentVolume > 0) {
             currentVolume--;
         } else return;
     }
