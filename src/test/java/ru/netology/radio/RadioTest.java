@@ -14,6 +14,12 @@ public class RadioTest {
     }
 
     @Test
+    public void testMinNumberStationToo() {
+        Radio radio = new Radio();
+        Assertions.assertEquals(0, radio.getMinNumberStation());
+    }
+
+    @Test
     public void testMaxNumberStation() {
         Radio radio = new Radio(10);
         Assertions.assertEquals(9, radio.getMaxNumberStation());
@@ -214,6 +220,12 @@ public class RadioTest {
     @Test
     public void testMinVolume() {
         Radio radio = new Radio(101);
+        Assertions.assertEquals(0, radio.getMinVolume());
+    }
+
+    @Test
+    public void testMinVolumeToo() {
+        Radio radio = new Radio();
         Assertions.assertEquals(0, radio.getMinVolume());
     }
 
