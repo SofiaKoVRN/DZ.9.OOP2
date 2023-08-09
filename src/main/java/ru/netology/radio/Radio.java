@@ -2,21 +2,22 @@ package ru.netology.radio;
 
 public class Radio {
 
-    private int minNumberStation = 0;
-    private int maxNumberStation = 9;
-    private int currentNumberStation = minNumberStation;
+    private int minNumberStation;
+    private int maxNumberStation;
+    private int currentNumberStation;
 
-    private int minVolume = 0;
-    private int maxVolume = 100;
-    private int currentVolume = minVolume;
+    private int minVolume;
+    private int maxVolume;
+    private int currentVolume;
 
-    public Radio(int minNumberStation, int maxNumberStation) {
-        this.minNumberStation = minNumberStation;
+    public Radio() {
+        this.maxNumberStation = 9;
+        this.maxVolume = 100;
     }
 
-    public Radio(int size) {
-        maxNumberStation = minNumberStation + size;
-        maxVolume = minVolume + size;
+    public Radio(int count) {
+        this.maxNumberStation = count - 1;
+        this.maxVolume = count - 1;
     }
 
     public int getMinNumberStation() {
@@ -47,7 +48,7 @@ public class Radio {
         if (currentNumberStation < 0) {
             return;
         }
-        if (currentNumberStation > 9) {
+        if (currentNumberStation > maxNumberStation) {
             return;
         }
         this.currentNumberStation = currentNumberStation;
@@ -57,14 +58,14 @@ public class Radio {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 100) {
+        if (currentVolume > maxVolume) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void nextStation() {
-        if (currentNumberStation != 9) {
+        if (currentNumberStation != maxNumberStation) {
             currentNumberStation++;
         } else {
             currentNumberStation = 0;
@@ -75,12 +76,12 @@ public class Radio {
         if (currentNumberStation != 0) {
             currentNumberStation--;
         } else {
-            currentNumberStation = 9;
+            currentNumberStation = maxNumberStation;
         }
     }
 
     public void louderVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume++;
         } else return;
     }
@@ -91,3 +92,4 @@ public class Radio {
         } else return;
     }
 }
+
